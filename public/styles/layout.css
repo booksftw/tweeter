@@ -28,8 +28,6 @@ body {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
-
-
 main.container {
   width: 450px;
   background-color: white;
@@ -38,3 +36,67 @@ main.container {
   position: relative;
 }
 
+span.counter {
+  float: right;
+}
+
+div#tweet-container {
+  top: 100px;
+  position: relative;
+  padding:20px;
+}
+
+div#tweet-container article {
+  opacity: 0.6;
+  margin-top: 7px;
+}
+
+
+div#tweet-container article:hover {
+  opacity:1;
+}
+
+div#tweet-container article {
+  border-radius: 6px;
+  border: 2px solid lightgrey;
+}
+
+div#tweet-container header {
+  background-color: #efeeee;
+  padding: 7px;
+}
+
+div#tweet-container img {
+  width: 78px;
+
+}
+
+div#tweet-container h2 {
+  display:inline-block;
+  margin-top: 26px;
+  vertical-align: top;
+}
+
+div#tweet-container header p {
+  display: inline-block;
+  float: right;
+  color: grey;
+}
+
+div#tweet-container footer {
+  border-top: 2px solid lightgrey;
+}
+
+div#tweet-container footer p {
+  margin-left: 10px;
+  font-size: small;
+  color: darkslategrey;
+}
+
+div#tweet-container article p {
+  color: darkslategray;
+  padding-left: 17px;
+  padding-right: 17px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
