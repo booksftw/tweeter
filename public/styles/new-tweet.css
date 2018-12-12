@@ -1,0 +1,23 @@
+.form-container {
+    background-color: #e6e6e6;
+    padding-top: 4px;
+    border-radius: 4px;
+    border: 2px solid lightgrey;
+    margin-left: 34px;
+    margin-right: 34px;
+    margin-top: 56px;
+    top: 48px;
+    position: relative;
+}
+
+.new-tweet textarea {
+    width: 100%;
+}
+
+.new-tweet h2 {
+    margin: 0;
+}
+
+.new-tweet {
+    padding: 6px;
+}

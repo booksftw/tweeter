@@ -7,6 +7,11 @@ const tweetsRoutes  = express.Router();
 
 module.exports = function(DataHelpers) {
 
+  //NZ
+  // tweetsRoutes.post('/tweets' , (req , res) => {
+  //   res.send('okay tweets');
+  // });
+
   tweetsRoutes.get("/", function(req, res) {
     DataHelpers.getTweets((err, tweets) => {
       if (err) {
