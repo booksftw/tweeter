@@ -22,3 +22,11 @@ span.header {
     top: 40%;
     color: white;
 }
+
+#nav-bar button.btn.btn-light {
+    float: right;
+    margin-top: 10px;
+    margin-right: 34px;
+    width: 200px;
+    height: 59px;
+}

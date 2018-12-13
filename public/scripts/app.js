@@ -7,67 +7,26 @@ $(document).ready(function() {
     /*
         Returns a tweet <article> containing the entire html structure.
     */
-    // Fake data taken from tweets.json
-    const data = [
-        {
-            "user": {
-                "name": "Newton",
-                "avatars": {
-                    "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
-                    "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-                    "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
-                },
-                "handle": "@SirIsaac"
-            },
-            "content": {
-                "text": "If I have seen further it is by standing on the shoulders of giants"
-            },
-            "created_at": 1461116232227
-        },
-        {
-            "user": {
-                "name": "Descartes",
-                "avatars": {
-                    "small":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
-                    "regular": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png",
-                    "large":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
-                },
-                "handle": "@rd" },
-            "content": {
-                "text": "Je pense , donc je suis"
-            },
-            "created_at": 1461113959088
-        },
-        {
-            "user": {
-                "name": "Johann von Goethe",
-                "avatars": {
-                    "small":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
-                    "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
-                    "large":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
-                },
-                "handle": "@johann49"
-            },
-            "content": {
-                "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
-            },
-            "created_at": 1461113796368
-        }
-    ];
+
+    function clearTweet(tweets) {
+        $('div#tweet-container').empty()
+        renderTweets(tweets);
+    }
 
     function renderTweets(tweets) {
         // loops through tweets
         // calls createTweetElement for each tweet
         // takes return value and appends it to the tweets container
 
+        // Remove the inner nodes
+
+        // Create them
         for(let x of tweets) {
             const tweet = createTweetElement(x);
-            console.log(tweet , 'tweet')
             $('div#tweet-container').append(tweet);
         }
     }
     function createTweetElement (tweetObj) {
-
             var $tweet = $("<article>").addClass("tweet").html(`
                 <header>
                     <img src="${tweetObj.user.avatars.regular}" alt="avatar"> 
@@ -77,17 +36,79 @@ $(document).ready(function() {
                 <p>${tweetObj.content.text}</p>
                 <footer><p><em>created at: ${tweetObj.created_at}</em></p></footer>
             `);
-
         return $tweet[0]
     }
-    renderTweets(data);
 
-    // var $tweet = createTweetElement(tweetData);
-    //
-    // // Test / driver code (temporary)
-    // console.log($tweet); // to see what it looks like
-    // $('#tweet-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+   function loadTweets() {
+        const actionUrl = "http://localhost:8080/tweets";
 
+        function success(d) {
+            let sortedD = d.sort(function(a, b) {
+                return b.created_at - a.created_at;
+            })
+            clearTweet(sortedD);
+        }
+       $.ajax({
+           url: actionUrl,
+           type: "GET",
+           success: success,
+       })
+    }
+
+    function escape(str) {
+        var div = document.createElement('div');
+        div.appendChild(document.createTextNode(str));
+        return div.innerHTML;
+    }
+
+    $('section.new-tweet form').submit(function(e){
+        e.preventDefault();
+
+        console.log(this);
+
+        let formAction        = e.target.action;
+        let formVal           = e.target[0].value;
+        e.target[0].value = escape(e.target[0].value);
+        let formValSerialized = $(this).serialize();
+        // debugger;
+        // var entityMap = {
+        //     '&': '&amp;',
+        //     '<': '&lt;',
+        //     '>': '&gt;',
+        //     '"': '&quot;',
+        //     "'": '&#39;',
+        //     '/': '&#x2F;',
+        //     '`': '&#x60;',
+        //     '=': '&#x3D;'
+        // };
+        //
+        // function escapeHtml (string) {
+        //     return String(string).replace(/[&<>"'`=\/]/g, function (s) {
+        //         return entityMap[s];
+        //     });
+        // }
+        // let strippedValue = escape(formValSerialized);
+        // console.log(strippedValue)
+        // formValSerialized = .text(strippedValue);
+        // let y = $(this).seralize
+        // let x = escapeHtml(formVal);
+        // console.log(x,'x')
+
+        if (formVal !== '' && formVal.length <= 140) {
+
+            console.log(formVal);
+            $.post(formAction, formValSerialized, function(d) {
+                console.log("twitter post success")
+                loadTweets()
+                // let newTweet = loadTweets;
+                // renderTweets(newTweet);
+            })
+        } else {
+            alert("Invalid form submission")
+        }
+    })
+
+    loadTweets() // Loads the intial tweets
 });
 
 
