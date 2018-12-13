@@ -64,47 +64,19 @@ $(document).ready(function() {
     $('section.new-tweet form').submit(function(e){
         e.preventDefault();
 
-        console.log(this);
-
         let formAction        = e.target.action;
         let formVal           = e.target[0].value;
         e.target[0].value = escape(e.target[0].value);
         let formValSerialized = $(this).serialize();
-        // debugger;
-        // var entityMap = {
-        //     '&': '&amp;',
-        //     '<': '&lt;',
-        //     '>': '&gt;',
-        //     '"': '&quot;',
-        //     "'": '&#39;',
-        //     '/': '&#x2F;',
-        //     '`': '&#x60;',
-        //     '=': '&#x3D;'
-        // };
-        //
-        // function escapeHtml (string) {
-        //     return String(string).replace(/[&<>"'`=\/]/g, function (s) {
-        //         return entityMap[s];
-        //     });
-        // }
-        // let strippedValue = escape(formValSerialized);
-        // console.log(strippedValue)
-        // formValSerialized = .text(strippedValue);
-        // let y = $(this).seralize
-        // let x = escapeHtml(formVal);
-        // console.log(x,'x')
 
         if (formVal !== '' && formVal.length <= 140) {
 
-            console.log(formVal);
-            $.post(formAction, formValSerialized, function(d) {
-                console.log("twitter post success")
+            $.post(formAction, formValSerialized, function() {
                 loadTweets()
-                // let newTweet = loadTweets;
-                // renderTweets(newTweet);
             })
         } else {
-            alert("Invalid form submission")
+            // alert("Invalid form submission")
+
         }
     })
 

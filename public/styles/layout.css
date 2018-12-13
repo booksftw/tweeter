@@ -22,6 +22,7 @@ body {
 
 body {
   font-family: 'Roboto', sans-serif;
+  background-color: #eee !important;
 }
 
 /*
@@ -31,7 +32,7 @@ body {
 main.container {
   width: 450px;
   background-color: white;
-  min-height: 100vh; /* min height will extend when the nested elements and vh is similar to % for viewport height */
+  min-height: 130vh; /* min height will extend when the nested elements and vh is similar to % for viewport height */
   margin: 80px auto;
   position: relative;
 }
@@ -41,9 +42,13 @@ span.counter {
 }
 
 div#tweet-container {
-  top: 100px;
+  top: 40px;
   position: relative;
   padding:20px;
+}
+
+div.error-container {
+  padding-top: 104px;
 }
 
 div#tweet-container article {
@@ -99,4 +104,13 @@ div#tweet-container article p {
   padding-right: 17px;
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+div.error-container {
+  padding-top: 14px;
+  margin-top: 82px;
+  display: none;
+}
+.error-header {
+    text-align:center;
 }
