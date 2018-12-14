@@ -17,4 +17,6 @@ This repository is the starter code for the project: Students will fork and clon
 - Node 5.10.x or above
 
 
+![alt text](https://github.com/booksftw/tweeter/blob/master/docs/Mongo_Endpoint.png)
+![alt text](https://raw.githubusercontent.com/booksftw/tweeter/master/docs/Tweet_Form_Toggle-Hide.png)
 ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
