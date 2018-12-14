@@ -61,6 +61,7 @@ $(document).ready(function() {
         return div.innerHTML;
     }
 
+    // Post
     $('section.new-tweet form').submit(function(e){
         e.preventDefault();
 
@@ -70,13 +71,11 @@ $(document).ready(function() {
         let formValSerialized = $(this).serialize();
 
         if (formVal !== '' && formVal.length <= 140) {
-
             $.post(formAction, formValSerialized, function() {
                 loadTweets()
             })
         } else {
             // alert("Invalid form submission")
-
         }
     })
 
