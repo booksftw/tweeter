@@ -100,10 +100,7 @@ div#tweet-container footer p {
 
 div#tweet-container article p {
   color: darkslategray;
-  padding-left: 17px;
-  padding-right: 17px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px 17px;
 }
 
 div.error-container {

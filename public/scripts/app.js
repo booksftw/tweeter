@@ -17,10 +17,6 @@ $(document).ready(function() {
         // loops through tweets
         // calls createTweetElement for each tweet
         // takes return value and appends it to the tweets container
-
-        // Remove the inner nodes
-
-        // Create them
         for(let x of tweets) {
             const tweet = createTweetElement(x);
             $('div#tweet-container').append(tweet);
@@ -74,8 +70,6 @@ $(document).ready(function() {
             $.post(formAction, formValSerialized, function() {
                 loadTweets()
             })
-        } else {
-            // alert("Invalid form submission")
         }
     })
 
