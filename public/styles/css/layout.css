@@ -1,0 +1,114 @@
+/*
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * https://css-tricks.com/international-box-sizing-awareness-day/
+ * Do not modify these two selectors, please
+ */
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/*
+ * Global layout stuff
+ */
+body {
+  margin: 0;
+  color: #244751;
+  background-color: #eee;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #eee !important;
+}
+
+/*
+ * Additional CSS can be defined below or in other CSS files, as per instructions
+ */
+main.container {
+  width: 450px;
+  background-color: white;
+  min-height: 130vh;
+  /* min height will extend when the nested elements and vh is similar to % for viewport height */
+  margin: 80px auto;
+  position: relative;
+}
+
+span.counter {
+  float: right;
+}
+
+div#tweet-container {
+  top: 40px;
+  position: relative;
+  padding: 20px;
+}
+
+div.error-container {
+  padding-top: 104px;
+}
+
+div#tweet-container article {
+  opacity: 0.6;
+  margin-top: 7px;
+}
+
+div#tweet-container article:hover {
+  opacity: 1;
+}
+
+div#tweet-container article {
+  border-radius: 6px;
+  border: 2px solid lightgrey;
+}
+
+div#tweet-container header {
+  background-color: #efeeee;
+  padding: 7px;
+}
+
+div#tweet-container img {
+  width: 78px;
+}
+
+div#tweet-container h2 {
+  display: inline-block;
+  margin-top: 26px;
+  vertical-align: top;
+}
+
+div#tweet-container header p {
+  display: inline-block;
+  float: right;
+  color: grey;
+}
+
+div#tweet-container footer {
+  border-top: 2px solid lightgrey;
+}
+
+div#tweet-container footer p {
+  margin-left: 10px;
+  font-size: small;
+  color: darkslategrey;
+}
+
+div#tweet-container article p {
+  color: darkslategray;
+  padding: 10px 17px;
+}
+
+div.error-container {
+  padding-top: 14px;
+  margin-top: 82px;
+  display: none;
+}
+
+.error-header {
+  text-align: center;
+}
+
+/*# sourceMappingURL=layout.css.map */
